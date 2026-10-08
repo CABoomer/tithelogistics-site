@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<div class="hero">
+  <h1>{{ site.tagline }}</h1>
+  <p>Tithe Logistics connects your Shopify store to the LTL carrier accounts you already have. Show your negotiated freight rates at checkout and book palletized shipments without leaving Shopify admin.</p>
+  <div class="actions">
+    {% if site.app_store_url != "" %}<a class="btn" href="{{ site.app_store_url }}">Get it on the Shopify App Store</a>{% endif %}
+    <a class="btn {% if site.app_store_url != '' %}secondary{% endif %}" href="#demo">Watch the demo</a>
+    <a class="btn secondary" href="{{ '/support/' | relative_url }}">Support</a>
+  </div>
+</div>
+
+<section id="demo">
+  <h2>Demo</h2>
+  <div class="video">
+    {% if site.youtube_id != "" %}
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ site.youtube_id }}?rel=0"
+        title="Tithe Logistics demo" loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowfullscreen></iframe>
+    {% else %}
+      <div class="placeholder">Demo video coming soon</div>
+    {% endif %}
+  </div>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Your accounts, your rates</h3>
+      <p>Connect the LTL carrier accounts you've already negotiated. Tithe Logistics never marks up freight.</p>
+    </div>
+    <div class="card">
+      <h3>Live rates at checkout</h3>
+      <p>Customers see real freight quotes calculated from product weight, dimensions and carton/pallet configuration.</p>
+    </div>
+    <div class="card">
+      <h3>Book from the order</h3>
+      <p>Create the shipment with your carrier straight from the Shopify order. You're billed only for confirmed bookings.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="note">Tithe Logistics is software only. It is not a freight broker, freight forwarder or motor carrier. Shipments are contracted directly between you and your carrier under your own account.</p>
+</section>

@@ -20,13 +20,15 @@ This Privacy Policy explains how {{ site.legal_name }} ("**Tithe Logistics**", "
 
 | Category | Examples | Source |
 |---|---|---|
-| Store information | Shop domain, store name, contact email, currency, locations and addresses you ship from | Shopify API, when you install |
+| Store information | Shop domain; the name and email of the staff member using the App | Shopify, when you install and sign in |
 | Shopify access credentials | The OAuth access token Shopify issues to the App | Shopify, when you install |
-| Carrier account credentials | Account numbers, API keys, usernames/passwords or tokens for the carrier accounts you connect | Entered by you in the App |
-| Product data | Product and variant titles, SKUs, weight, dimensions, freight class, carton and pallet configuration | Shopify API and your settings in the App |
-| Checkout rate requests | Destination address (street, city, state, postal code, country) and cart contents sent by Shopify to calculate freight rates | Shopify, at checkout |
-| Order and shipment data | Order number, line items, ship-to name, company, address, phone number and email; delivery notes; bookings, PRO/BOL numbers and tracking status | Shopify API and the carrier |
-| Billing and usage | Plan, number of confirmed bookings, connected carrier count | Shopify Billing API and App usage |
+| Carrier account credentials | Account numbers, usernames, passwords and API keys for the carrier accounts you connect | Entered by you in the App |
+| Shipping origin | The address and contact details you ship from | Entered by you in the App |
+| Product data | Product and variant titles, images, SKUs, weight, dimensions, freight class, carton and pallet configuration | Shopify API and your settings in the App |
+| Checkout rate requests | Destination address and cart contents; the customer's name, phone number and email if they have already entered them at checkout | Shopify, at checkout |
+| Order and shipment data | Order number, line items, ship-to name, company, address and phone number; delivery notes; bookings, PRO/BOL numbers and tracking status. We do not read customer email from orders | Shopify API, your entries in the App, and the carrier |
+| Billing and usage | Plan, number of confirmed bookings | Shopify Billing API and App usage |
+| Access records | Which staff member viewed shipment records containing customer data, and when | Automatically, when the App is used |
 | Technical data | Server logs, IP addresses of requests, error reports | Automatically, when the App is used |
 
 We do **not** collect payment card information. Customer payments are processed by Shopify, and App subscription charges are billed through Shopify.
@@ -51,14 +53,24 @@ We do not sell personal information, use it for advertising, or use customer dat
 
 ## 5. Security
 
-Carrier credentials and Shopify access tokens are encrypted at rest. Data is encrypted in transit using TLS. Access to production systems is limited to personnel who need it to operate the App. No method of transmission or storage is completely secure, but we work to protect your information using industry-standard safeguards.
+Carrier credentials are encrypted at rest with AES-256-GCM, and database backups are encrypted. Data is encrypted in transit using TLS. Access to production systems is limited to personnel who need it to operate the App, and views of shipment records containing customer data are logged. No method of transmission or storage is completely secure, but we work to protect your information using industry-standard safeguards.
 
 ## 6. Data retention and deletion {#retention}
 
-- **While the App is installed**, we keep data as long as needed to provide the service. Shipment and booking records are kept so you can view history and for billing.
-- **When you uninstall**, we stop accessing your store. When Shopify sends the `shop/redact` request (typically 48 hours after uninstall), we delete your store's data, including carrier credentials, within 30 days, except billing records we must keep for tax and accounting purposes.
-- **Customer requests.** We honor Shopify's `customers/data_request` and `customers/redact` requests. When a merchant's customer asks to see or delete their data, we provide or delete the data we hold for that customer within 30 days, except where we must keep it by law.
-- Server logs are kept for up to [90] days.
+We keep personal data only as long as it's needed, then remove it automatically. Expired customer details are erased from the record; the remaining shipment data (weights, lanes, rates) no longer identifies anyone and is kept for your history and reporting.
+
+| Data | How long we keep the customer details |
+|---|---|
+| Shipments that were booked with a carrier (a bill of lading was issued) | 48 months, so you have records for the full period in which freight loss, damage and overcharge claims can be brought |
+| Shipments that were never booked with a carrier | 90 days |
+| Checkout and admin rate-quote records | 180 days |
+| Records of which staff viewed customer data | 1 year (these contain no customer details) |
+| Billing and usage records | 7 years, for tax and accounting (these contain no customer details) |
+| Records of privacy requests we've handled | 6 years, stored in pseudonymised form, so we can show the request was honoured |
+
+- **When you uninstall**, we stop accessing your store. When Shopify sends the `shop/redact` request (typically 48 hours after uninstall), we delete all of your store's data, including carrier credentials. The only exception is the pseudonymised record of privacy requests described above.
+- **Customer requests.** We honor Shopify's `customers/data_request` and `customers/redact` requests. When a customer asks to have their data deleted, we erase their details from matching shipments and rate quotes as soon as we receive the request. When a customer asks for a copy, we provide the data we hold to the merchant within 30 days. A shipment entered by hand without a linked Shopify order can't be matched to a customer, so it is removed on the schedule above instead.
+- Server logs are kept for up to 90 days.
 
 ## 7. Your rights
 
@@ -84,5 +96,5 @@ We may update this Policy from time to time. We will post the new version on thi
 ## 11. Contact
 
 {{ site.legal_name }}<br>
-{{ site.mailing_address }}<br>
+{% if site.mailing_address != "" %}{{ site.mailing_address }}<br>{% endif %}
 [{{ site.privacy_email }}](mailto:{{ site.privacy_email }})

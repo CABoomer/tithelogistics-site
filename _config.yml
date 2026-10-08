@@ -10,13 +10,13 @@ description: >-
   freight shipments directly through their own negotiated carrier accounts.
 
 # --- Placeholders: fill these in -------------------------------
-legal_name: "[LEGAL BUSINESS NAME, e.g. Tithe Logistics LLC]"
-support_email: "[support@yourdomain.com]"
-privacy_email: "[privacy@yourdomain.com]"   # can be the same as support
-mailing_address: "[Street Address, City, State ZIP, USA]"
+legal_name: "Michael Harris"
+support_email: "michaeld.harris@me.com"
+privacy_email: "michaeld.harris@me.com"   # can be the same as support
+mailing_address: ""   # PO box pending; contact blocks hide the line while blank
 governing_state: "North Carolina"
-hosting_provider: "[HOSTING PROVIDER, e.g. Fly.io / Render / AWS]"
-policy_effective_date: "[Month DD, 2026]"
+hosting_provider: "Amazon Web Services (AWS Lightsail)"
+policy_effective_date: "October 8, 2026"
 
 # YouTube video ID only — the part after "v=" or "youtu.be/".
 # Leave blank to show a "coming soon" placeholder.

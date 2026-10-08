@@ -32,7 +32,7 @@ Rates are calculated from data returned by your carrier and your App settings at
 
 ## 5. Fees
 
-Fees are described in the App's plan listing and billed through Shopify. Charges are based on confirmed bookings under your plan, plus any overage described in your plan. Fees are non-refundable except as required by law or Shopify's policies. We may change pricing with at least 30 days' notice.
+Fees are described in the App's plan listing and on our [Support page]({{ '/support/' | relative_url }}), and are billed through Shopify. Paid plans have a monthly fee that includes a set number of bookings per billing cycle, plus a per-booking charge for confirmed bookings beyond that number. The Free plan includes a limited number of bookings in total and has no charges. Fees are non-refundable except as required by law or Shopify's policies. We may change pricing with at least 30 days' notice.
 
 ## 6. Availability and changes
 
@@ -65,5 +65,5 @@ These Terms are governed by the laws of the State of {{ site.governing_state }},
 ## 13. Contact
 
 {{ site.legal_name }}<br>
-{{ site.mailing_address }}<br>
+{% if site.mailing_address != "" %}{{ site.mailing_address }}<br>{% endif %}
 [{{ site.support_email }}](mailto:{{ site.support_email }})
